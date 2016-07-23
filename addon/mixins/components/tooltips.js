@@ -125,6 +125,10 @@ export default Ember.Mixin.create({
     const component = componentWasPassed ? maybeTooltipComponent : Ember.Object.create({});
     const renderContext = componentWasPassed ? component : this;
 
+    if (renderContext.isDestroying) {
+      return;
+    }
+
     let content = this.get('tooltipContent');
     let tooltip, tooltipOptions;
 
