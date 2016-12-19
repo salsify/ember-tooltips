@@ -13,7 +13,7 @@
   },
   "repository": "https://github.com/sir-dunxalot/ember-tooltips",
   "engines": {
-    "node": "4.4.x"
+    "node": ">= 0.10.0"
   },
   "author": "",
   "license": "MIT",
