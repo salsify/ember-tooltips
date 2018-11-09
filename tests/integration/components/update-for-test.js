@@ -1,55 +1,41 @@
-import Ember from 'ember';
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, settled } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import {
+  assertTooltipContent,
+} from 'ember-tooltips/test-support';
 
-const {
-  RSVP,
-  run,
-} = Ember;
+module('Integration | Option | updateFor', function(hooks) {
+  setupRenderingTest(hooks);
 
-import { assertTooltipContent } from '../../helpers/ember-tooltips';
+  test('updateFor test', async function(assert) {
+    assert.expect(2);
 
-moduleForComponent('tooltip-on-element', 'Integration | Option | updateFor', {
-  integration: true,
-});
+    this.set('asyncContent', null);
 
-test('updateFor test', function(assert) {
+    await render(hbs`
+      {{#ember-tooltip updateFor=asyncContent isShown=true}}
+        {{#if asyncContent}}
+          {{asyncContent}}
+        {{else}}
+          ...
+        {{/if}}
+      {{/ember-tooltip}}
+    `);
 
-  assert.expect(2);
-
-  this.set('asyncContent', null);
-
-  this.on('setAsyncContent', () => {
-    return new RSVP.Promise((resolve) => {
-      run.later(() => {
-        this.set('asyncContent', 'Some model');
-        resolve();
-      }, 100);
+    assertTooltipContent(assert, {
+      contentString: '...',
     });
-  });
 
-  this.render(hbs`
-    {{#tooltip-on-element updateFor=asyncContent onRender='setAsyncContent'}}
-      {{#if asyncContent}}
-        {{asyncContent}}
-      {{else}}
-        ...
-      {{/if}}
-    {{/tooltip-on-element}}
-  `);
+    /* After 200ms, change the async content */
 
-  const done = assert.async();
+    this.set('asyncContent', 'Some model');
 
-  assertTooltipContent(assert, {
-    contentString: '...',
-  });
+    await settled();
 
-  run.later(() => {
     assertTooltipContent(assert, {
       contentString: 'Some model',
     });
-
-    done();
-  }, 200);
-
+  });
 });

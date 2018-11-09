@@ -1,78 +1,57 @@
-import Ember from 'ember';
-import { moduleForComponent, test } from 'ember-qunit';
-import { assertTooltipNotVisible, triggerTooltipTargetEvent, assertTooltipVisible } from '../../helpers/ember-tooltips';
+import { later } from '@ember/runloop';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, settled, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
+import {
+  assertTooltipRendered,
+  assertTooltipNotRendered,
+  assertTooltipNotVisible,
+  assertTooltipVisible,
+} from 'ember-tooltips/test-support';
 
-const { run } = Ember;
+async function testTooltipDelay(assert, template) {
 
-moduleForComponent('tooltip-on-element', 'Integration | Option | delay', {
-  integration: true,
-});
+  await render(template);
 
-test('tooltip-on-element animates with delay passed as a number', function(assert) {
+  const { element } = this;
 
-  assert.expect(4);
+  assertTooltipNotRendered(assert);
 
-  this.render(hbs`{{tooltip-on-element delay=300}}`);
+  triggerEvent(element, 'mouseenter');
 
-  const done = assert.async();
+  /* Check the tooltip is not rendered until the delay */
 
-  assertTooltipNotVisible(assert);
+  later(() => {
+    assertTooltipNotRendered(assert);
+  }, 250);
 
-  triggerTooltipTargetEvent(this.$(), 'mouseenter');
+  await settled();
 
-  /* Check the tooltip is shown after the correct delay */
+  /* Check the tooltip is shown after the delay */
 
-  run.later(() => {
-    assertTooltipNotVisible(assert);
-  }, 290);
+  assertTooltipRendered(assert);
+  assertTooltipVisible(assert);
 
-  run.later(() => {
-    assertTooltipVisible(assert);
-  }, 320);
+  /* Check the tooltip still hides immediately when it's supposed to be hidden */
 
-  /* Check it still hides immediately */
+  triggerEvent(element, 'mouseleave');
 
-  run.later(() => {
-    triggerTooltipTargetEvent(this.$(), 'mouseleave');
-    assertTooltipNotVisible(assert);
-    done();
-  }, 350);
-
-});
-
-test('tooltip-on-element animates with delay passed as a string', function(assert) {
-
-  assert.expect(4);
-
-  this.render(hbs`{{tooltip-on-element delay='300'}}`);
-
-  const done = assert.async();
+  await settled();
 
   assertTooltipNotVisible(assert);
+}
 
-  triggerTooltipTargetEvent(this.$(), 'mouseenter');
+module('Integration | Option | delay', function(hooks) {
+  setupRenderingTest(hooks);
 
-  /* Check the tooltip is shown after the correct delay */
+  test('ember-tooltip animates with delay passed as a number', async function(assert) {
+    assert.expect(5);
+    await testTooltipDelay.call(this, assert, hbs`{{ember-tooltip delay=300}}`);
+  });
 
-  run.later(() => {
-
-    /* Tether should be enabled, because the tooltip must
-    be positioned before it is shown */
-
-    assertTooltipNotVisible(assert);
-  }, 290);
-
-  run.later(() => {
-    assertTooltipVisible(assert);
-  }, 320);
-
-  /* Check it still hides immediately */
-
-  run.later(() => {
-    triggerTooltipTargetEvent(this.$(), 'mouseleave');
-    assertTooltipNotVisible(assert);
-    done();
-  }, 350);
-
+  test('ember-tooltip animates with delay passed as a string', async function(assert) {
+    assert.expect(5);
+    await testTooltipDelay.call(this, assert, hbs`{{ember-tooltip delay='300'}}`);
+  });
 });
