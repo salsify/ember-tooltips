@@ -13,8 +13,7 @@ module('Integration | Option | actions', function(hooks) {
 
   test('ember-tooltip calls lifecycle actions', async function(assert) {
 
-    assert.expect(10);
-    // assert.expect(14);
+    assert.expect(14);
 
     const actionsCalledHash = {
       onRenderFoo: 0,
@@ -26,12 +25,14 @@ module('Integration | Option | actions', function(hooks) {
     /* Setup the actions and handlers... */
 
     Object.keys(actionsCalledHash).forEach((action) => {
-      this.set(action, () => {
+      this.set(action, (arg) => {
         assert.ok(true, `Should call ${action}`);
 
         /* Count the calls... */
 
         actionsCalledHash[action]++;
+
+        assert.ok(arg.classNames.join(' ').indexOf('ember-tooltip-base') > -1);
       });
     });
 
@@ -76,22 +77,6 @@ module('Integration | Option | actions', function(hooks) {
     /* Check destroy */
 
     this.set('destroyTooltip', true);
-    // const actionsArgumentsHash = {
-    //   onRenderFoo: false,
-    //   onShowBar: false,
-    //   onHideBaz: false,
-    //   onDestroyFubar: false,
-    // };
-    //
-    // /* Setup the actions and handlers... */
-    //
-    // Object.keys(actionsCalledHash).forEach((action) => {
-    //   this.on(action, (args) => {
-    //     assert.ok(true, `Should call ${action}`);
-    //   actionsCalledHash[action]++;
-    //
-    //   actionsArgumentsHash[action] = args ? args.classNames.join(' ').indexOf('ember-tooltip') > 0 : false;
-    // });
 
     assert.equal(actionsCalledHash.onDestroyFubar, 1,
       'Should have called destroy');
