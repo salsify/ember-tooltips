@@ -7,7 +7,7 @@ import {
   assertTooltipNotRendered,
   assertTooltipVisible,
   findTooltip,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 // const MS_FOR_BLUR = 100;
 

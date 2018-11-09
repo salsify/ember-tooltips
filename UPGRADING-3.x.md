@@ -99,7 +99,7 @@ import {
 -  triggerTooltipTargetEvent
 -} from 'my-cool-app/tests/helpers/ember-tooltips';
 +  findTooltip
-+} from 'ember-tooltips/test-support';
++} from '@salsify/ember-tooltips/test-support';
 ```
 
 #### 4.2 Replace `triggerTooltipTargetEvent` test helper

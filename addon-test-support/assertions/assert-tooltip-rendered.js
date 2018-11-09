@@ -1,4 +1,4 @@
-import { findTooltip } from 'ember-tooltips/test-support';
+import { findTooltip } from '@salsify/ember-tooltips/test-support';
 
 export default function assertTooltipRendered(assert, options = {}) {
   const { selector } = options;

@@ -2,7 +2,7 @@ import { assert as emberAssert } from '@ember/debug';
 import {
   getPositionDifferences,
   validateSide,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 export default function assertTooltipSpacing(assert, options) {
   const { side, spacing } = options;

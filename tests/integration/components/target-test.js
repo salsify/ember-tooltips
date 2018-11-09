@@ -6,7 +6,7 @@ import hbs from 'htmlbars-inline-precompile';
 import {
   findTooltip,
   findTooltipTarget,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 module('Integration | Component | target', function(hooks) {
   setupRenderingTest(hooks);

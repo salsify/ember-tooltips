@@ -2,7 +2,7 @@ import {
   findTooltip,
   findTooltipTarget,
   getOppositeSide,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 /**
 @method getPositionDifferences

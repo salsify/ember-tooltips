@@ -5,7 +5,7 @@ import hbs from 'htmlbars-inline-precompile';
 import {
   assertTooltipNotRendered,
   assertTooltipVisible,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 module('Integration | Option | delayOnChange', function(hooks) {
   setupRenderingTest(hooks);

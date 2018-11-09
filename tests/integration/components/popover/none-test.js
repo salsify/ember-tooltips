@@ -4,7 +4,7 @@ import { render, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import {
   assertTooltipNotRendered,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 module('Integration | Option | event', function(hooks) {
   setupRenderingTest(hooks);

@@ -1,6 +1,6 @@
 import { deprecatingAlias } from '@ember/object/computed';
 import { cancel, later } from '@ember/runloop';
-import EmberTooltipBase from 'ember-tooltips/components/ember-tooltip-base';
+import EmberTooltipBase from '@salsify/ember-tooltips/components/ember-tooltip-base';
 
 export default EmberTooltipBase.extend({
   popoverHideDelay: 250,

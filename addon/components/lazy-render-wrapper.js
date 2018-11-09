@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from 'ember-tooltips/templates/components/lazy-render-wrapper';
+import layout from '@salsify/ember-tooltips/templates/components/lazy-render-wrapper';
 
 const {
   Component,

@@ -1,1 +1,1 @@
-export { default } from 'ember-tooltips/components/ember-popover';
+export { default } from '@salsify/ember-tooltips/components/ember-popover';

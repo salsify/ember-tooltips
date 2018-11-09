@@ -4,7 +4,7 @@ import { render, triggerEvent } from '@ember/test-helpers';
 import {
   assertTooltipNotRendered,
 	assertTooltipVisible,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Compatibility | ember-line-clamp', function(hooks) {

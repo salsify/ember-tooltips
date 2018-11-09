@@ -7,7 +7,7 @@ import {
   assertTooltipRendered,
   assertTooltipNotRendered,
   findTooltipTarget,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 module('Integration | Component | ember-tooltip', function(hooks) {
   setupRenderingTest(hooks);

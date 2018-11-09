@@ -5,7 +5,7 @@ import hbs from 'htmlbars-inline-precompile';
 import {
   assertTooltipNotVisible,
   assertTooltipVisible,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 module('Integration | Option | isShown', function(hooks) {
   setupRenderingTest(hooks);

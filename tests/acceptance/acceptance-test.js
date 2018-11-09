@@ -8,7 +8,7 @@ import {
   assertTooltipNotVisible,
   findTooltip,
   assertTooltipVisible,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 module('Acceptance | acceptance', function(hooks) {
   setupApplicationTest(hooks);

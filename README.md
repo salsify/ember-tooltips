@@ -423,7 +423,7 @@ You can set the default for any option by extending the `{{ember-tooltip}}` or `
 ```js
 {{!--your-app/components/ember-tooltip}}--}}
 
-import EmberTooltipComponent from 'ember-tooltips/components/ember-tooltip';
+import EmberTooltipComponent from '@salsify/ember-tooltips/components/ember-tooltip';
 
 export default EmberTooltipComponent.extend({
   effect: 'fade',
@@ -478,7 +478,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, triggerEvent } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-import { assertTooltipRendered } from 'ember-tooltips/test-support';
+import { assertTooltipRendered } from '@salsify/ember-tooltips/test-support';
 
 module('Integration | Component | Some component', function(hooks) {
   setupRenderingTest(hooks);
@@ -497,7 +497,7 @@ module('Integration | Component | Some component', function(hooks) {
 Asserts that a tooltip or popover has content that matches a given string.
 
 ```js
-import { assertTooltipContent } from 'ember-tooltips/test-support';
+import { assertTooltipContent } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -520,7 +520,7 @@ Asserts that a tooltip or popover has been rendered in the DOM.
 
 ```js
 import { render, triggerEvent } from '@ember/test-helpers';
-import { assertTooltipRendered } from 'ember-tooltips/test-support';
+import { assertTooltipRendered } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -548,7 +548,7 @@ Why is this test helper useful? Well, given this addon's lazy rendering capabili
 
 ```js
 import { render, triggerEvent } from '@ember/test-helpers';
-import { assertTooltipNotRendered } from 'ember-tooltips/test-support';
+import { assertTooltipNotRendered } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -572,7 +572,7 @@ For example:
 
 ```js
 import { render, triggerEvent } from '@ember/test-helpers';
-import { assertTooltipVisible } from 'ember-tooltips/test-support';
+import { assertTooltipVisible } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -588,7 +588,7 @@ You may use this helper with a variety of different user interactions. Here's an
 
 ```js
 import { render, triggerEvent } from '@ember/test-helpers';
-import { assertTooltipVisible } from 'ember-tooltips/test-support';
+import { assertTooltipVisible } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -622,7 +622,7 @@ import { render, triggerEvent } from '@ember/test-helpers';
 import {
   assertTooltipNotVisible,
   assertTooltipVisible,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -657,7 +657,7 @@ This helper tests [the side option](#side) that can be passed to tooltips and po
 An options hash is required and it must contain a `side` property. For example:
 
 ```js
-import { assertTooltipSide } from 'ember-tooltips/test-support';
+import { assertTooltipSide } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -686,7 +686,7 @@ This helper tests [the spacing option](#spacing) that can be passed to tooltips 
 An options hash is required and it must contain `spacing` and `side` properties. For example:
 
 ```js
-import { assertTooltipSpacing } from 'ember-tooltips/test-support';
+import { assertTooltipSpacing } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -729,7 +729,7 @@ The content string you expect the tooltip or popover to have.
 Usage example:
 
 ```js
-import { assertTooltipContent } from 'ember-tooltips/test-support';
+import { assertTooltipContent } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -755,7 +755,7 @@ Usage example:
 
 ```js
 import { render, triggerEvent } from '@ember/test-helpers';
-import { assertTooltipVisible } from 'ember-tooltips/test-support';
+import { assertTooltipVisible } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -783,7 +783,7 @@ The value for the tooltip or popover's [`side` option](#side) that you are asser
 For example, if you specify for the tooltip or popover be shown on the right of the target using `side='right'`, you will pass `side: 'right'` in assertions that test side. Here is the code for this example:
 
 ```js
-import { assertTooltipSide } from 'ember-tooltips/test-support';
+import { assertTooltipSide } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -808,7 +808,7 @@ The value for the tooltip or popover's [`spacing` option](#spacing) that you are
 For example, if you specify for the tooltip or popover be shown on the right of the target using `side='right'`, you will pass `side: 'right'` in assertions that test side. Here is the code for this example:
 
 ```js
-import { assertTooltipSide } from 'ember-tooltips/test-support';
+import { assertTooltipSide } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 
@@ -838,7 +838,7 @@ Usage example:
 
 ```js
 import { render, triggerEvent } from '@ember/test-helpers';
-import { assertTooltipVisible } from 'ember-tooltips/test-support';
+import { assertTooltipVisible } from '@salsify/ember-tooltips/test-support';
 
 test('Example test', async function(assert) {
 

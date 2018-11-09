@@ -7,7 +7,7 @@ import {
   assertTooltipNotRendered,
   assertTooltipNotVisible,
   assertTooltipVisible,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 module('Integration | Option | duration', function(hooks) {
   setupRenderingTest(hooks);

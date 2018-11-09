@@ -8,7 +8,7 @@ import {
   assertTooltipNotRendered,
   assertTooltipNotVisible,
   assertTooltipVisible,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 async function testTooltipDelay(assert, template) {
 

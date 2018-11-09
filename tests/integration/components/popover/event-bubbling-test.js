@@ -5,7 +5,7 @@ import { render, triggerEvent } from '@ember/test-helpers';
 import {
   assertTooltipVisible,
   assertTooltipNotRendered,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Option | Event bubbling', function(hooks) {

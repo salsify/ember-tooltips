@@ -11,7 +11,7 @@ import {
   assertTooltipNotRendered,
   assertTooltipRendered,
   assertTooltipVisible,
-} from 'ember-tooltips/test-support';
+} from '@salsify/ember-tooltips/test-support';
 
 module('Acceptance | many-tooltips', function(hooks) {
   setupApplicationTest(hooks);
